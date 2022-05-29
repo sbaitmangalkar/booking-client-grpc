@@ -79,7 +79,7 @@ func GetAllBookingsByMovie(client pb.MovieBookingServiceClient, movie string) []
 	res := make([]pb.BookingDetails, 0)
 	ctx := context.Background()
 	query := pb.BookingQuery{}
-	query.Location = movie
+	query.Movie = movie
 	bookings, err := client.GetAllBookingsByMovie(ctx, &query)
 	if err != nil {
 		log.Fatalf("Error occurred while fetching booking for location: %s", query.Location)
